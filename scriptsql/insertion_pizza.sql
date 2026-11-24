@@ -19,4 +19,3 @@ VALUES (1, 1, 1), (2,3,2);
 
 INSERT INTO pizzas_garnitures (id_pizza, id_garniture)
 VALUES (1, 1), (1, 2), (2,5),(2,3), (2,4);
-
