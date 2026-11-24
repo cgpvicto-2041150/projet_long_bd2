@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Commandes en attente de livraison</title>
+</head>
+<body>
+    <h1>Commandes en attente de livraison</h1>
+    
+    <table>
+        <thead>
+            <tr>
+                <th>Numéro de la commande</th>
+                <th>Date de la commande</th>
+                <th>Adresse</th>
+                <th>Nom du client</th>
+                <th>Téléphone</th>
+                <th>Croûte</th>
+                <th>Sauce</th>
+                <th>Garnitures</th>
+                <th> </th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for commande in data %}
+            <tr>
+                <td>{{commande.id}}</td>
+                <td>{{commande.date_de_commande}}</td>
+                <td>{{commande.adresse}}</td>
+                <td>{{commande.nom}}</td>
+                <td>{{commande.numero_de_telephone}}</td>
+                <td>{{commande.croute}}</td>
+                <td>{{commande.sauce}}</td>
+                <td>{{commande.garnitures}}</td>
+                <td>
+                    <form action="{{ url_for('completer_livraison', id_commande =commande.id)}}" method="post">
+                        <button type="submit">Compléter la livraison</button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    
+    <a href="{{ url_for('index') }}">Retour à l'accueil</a>
+</body>
+</html>

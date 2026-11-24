@@ -1,0 +1,146 @@
+/*CSS ENTIÈREMENT FAIT PAR L'AI (ChatGPT)*/
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Roboto+Slab:wght@400;600;700&display=swap');
+
+:root {
+    --rouge: #a83227;
+    --rouge-fonce: #79251e;
+    --creme: #fff3d9;
+    --jaune: #e8bd66;
+    --vert: #526447;
+    --texte: #38291f;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 40px 5%;
+    background-color: var(--creme);
+    color: var(--texte);
+    font-family: 'Roboto Slab', serif;
+    background-image: radial-gradient(#d9c9a5 0.8px, transparent 0.8px);
+    background-size: 12px 12px;
+}
+
+/* TITRE */
+
+h1 {
+    text-align: center;
+    color: var(--rouge);
+    font-family: 'DM Serif Display', serif;
+    font-size: 42px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 35px;
+}
+
+h1::after {
+    display: block;
+    font-family: 'Roboto Slab', serif;
+    font-size: 13px;
+    letter-spacing: 3px;
+    color: var(--vert);
+    margin-top: 12px;
+}
+
+/* TABLEAU */
+
+table {
+    width: 100%;
+    max-width: 1300px;
+    margin: 0 auto 35px;
+    border-collapse: collapse;
+    background-color: #fffaf0;
+    border: 3px solid var(--rouge);
+    box-shadow: 7px 7px 0 var(--rouge-fonce);
+}
+
+thead {
+    background-color: var(--rouge);
+    color: var(--creme);
+}
+
+th {
+    padding: 17px 12px;
+    font-family: 'DM Serif Display', serif;
+    font-size: 16px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+td {
+    padding: 15px 12px;
+    text-align: center;
+    border-bottom: 1px solid #e4d4b8;
+    font-size: 14px;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #f5e8cd;
+}
+
+tbody tr:hover {
+    background-color: #f1d9a8;
+    transition: 0.2s;
+}
+
+/* LIEN RETOUR */
+
+a {
+    display: block;
+    width: fit-content;
+    margin: 30px auto;
+    padding: 14px 28px;
+    background-color: var(--vert);
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border: 2px solid #35452e;
+    box-shadow: 4px 4px 0 #35452e;
+    transition: 0.2s;
+}
+
+a:hover {
+    background-color: var(--rouge);
+    border-color: var(--rouge-fonce);
+    box-shadow: 2px 2px 0 var(--rouge-fonce);
+    transform: translate(2px, 2px);
+}
+
+/* SECTIONS DU FORMULAIRE */
+
+.conteneur-sections {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    align-items: start;
+}
+
+.section-formulaire {
+    background-color: #fffaf0;
+    border: none;
+    box-shadow: none;
+    border-radius: 8px;
+    padding: 30px;
+}
+
+.section-formulaire h2 {
+    font-family: 'DM Serif Display', serif;
+    color: #a83227;
+    text-align: center;
+    font-size: 23px;
+    border-bottom: 2px solid #e8bd66;
+    padding-bottom: 15px;
+    margin-top: 0;
+}
+
+.boutons-formulaire {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}

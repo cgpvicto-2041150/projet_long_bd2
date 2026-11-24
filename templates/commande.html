@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Effectuer une commande</title>
+</head>
+<body>
+
+    <h1>Effectuer une commande</h1>
+   
+    <div class='formulaire-de-commande'>
+        <form action="{{ url_for('resume_commande') }}" method="post">       
+            
+        <div class="conteneur-sections">
+
+            <section class="section-formulaire">
+
+                <label for='nom_complet'>*Votre nom complet</label><br>
+                <input type='text' id ='nom_complet' name='nom_complet' required><br>
+    <br>
+                <label for='telephone'>*Numéro de téléphone</label><br>
+                <input type='text' id ='telephone' name='telephone' required><br>
+    <br>
+                <label for='adresse'>*Adresse</label><br>
+                <input type='text' id ='adresse' name='adresse' required><br>
+
+            </section>
+
+            <section class="section-formulaire">
+
+                <label for="croute_id">Croûte</label><br>
+                <select id="croute_id" name="croute_id" required>
+                    <option value="">Choisir une croûte</option>
+                    <option value="1">Classique</option>
+                    <option value="2">Mince</option>
+                    <option value="3">Épaisse</option>
+                </select><br>
+    <br>
+                <label for="sauce_id">Sauce</label><br>
+                <select id="sauce_id" name="sauce_id" required>
+                    <option value="">Choisir une sauce</option>
+                    <option value="1">Tomate</option>
+                    <option value="2">Spaghetti</option>
+                    <option value="3">Alfredo</option>
+                </select><br>
+    <br>
+                <label>Choisir vos garnitures (Un maximum de 4 est imposé) :</label><br>
+
+                <input type="checkbox" id="pepperoni" name="garnitures" value="1">
+                <label for="pepperoni">Pepperoni</label><br>
+
+                <input type="checkbox" id="champignons" name="garnitures" value="2">
+                <label for="champignons">Champignons</label><br>
+
+                <input type="checkbox" id="oignons" name="garnitures" value="3">
+                <label for="oignons">Oignons</label><br>
+
+                <input type="checkbox" id="poivrons" name="garnitures" value="4">
+                <label for="poivrons">Poivrons</label><br>
+
+                <input type="checkbox" id="olives" name="garnitures" value="5">
+                <label for="olives">Olives</label><br>
+
+                <input type="checkbox" id="anchois" name="garnitures" value="6">
+                <label for="anchois">Anchois</label><br>
+
+                <input type="checkbox" id="bacon" name="garnitures" value="7">
+                <label for="bacon">Bacon</label><br>
+
+                <input type="checkbox" id="poulet" name="garnitures" value="8">
+                <label for="poulet">Poulet</label><br>
+
+                <input type="checkbox" id="mais" name="garnitures" value="9">
+                <label for="mais">Maïs</label><br>
+
+                <input type="checkbox" id="fromage" name="garnitures" value="10">
+                <label for="fromage">Fromage</label><br>
+
+                <input type="checkbox" id="piments" name="garnitures" value="11">
+                <label for="piments">Piments forts</label><br>
+
+            </section>
+
+        </div>
+
+        <div class='boutons-formulaire'>
+            <button name='bouton-formulaire' class='bouton btn-formulaire' type='submit'>Envoyer votre commande</button>
+        </div>
+        </form>
+    <a href="{{ url_for('index') }}">Retour à l'accueil</a>
+    </div>
+</body>
+</html>

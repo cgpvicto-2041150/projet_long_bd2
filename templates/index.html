@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Accueil Pizzeria</title>
+</head>
+<body>
+
+    <h1>Bienvenue à la Pizzeria!</h1>
+    <a href={{ url_for('afficher_commande')}}>Effectuer une commande</a>
+    <a href={{ url_for('afficher_liste_commandes') }}>Lister les commandes en attente de livraison</a>
+    
+</body>
+</html>

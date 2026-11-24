@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Résumé de la commande</title>
+</head>
+<body>
+
+    <h1>Résumé de la commande</h1>
+
+    <div class="formulaire-de-commande">
+
+        <section class="section-formulaire">
+            <h2>Vos informations</h2>
+            <p>Nom : {{ nom }}</p>
+            <p>Téléphone : {{ telephone }}</p>
+            <p>Adresse : {{ adresse }}</p>
+        </section>
+
+        <section class="section-formulaire">
+            <h2>Votre pizza</h2>
+            <p>Croûte : {{ croute }}</p>
+            <p>Sauce : {{ sauce }}</p>
+            <p>Garnitures : </p>
+                <ul>
+                    {% for garniture in nom_garnitures %}
+                        <li>{{ garniture }}</li>
+                    {% endfor %}
+                </ul>
+        </section>
+
+        <!-- Technique trouvé par Claude Ai -->
+        <form action="{{ url_for('soumettre_commande') }}" method="post">
+            <input type="hidden" name="nom_complet" value="{{ nom }}">
+            <input type="hidden" name="telephone" value="{{ telephone }}">
+            <input type="hidden" name="adresse" value="{{ adresse }}">
+            <input type="hidden" name="croute_id" value="{{ croute_id }}">
+            <input type="hidden" name="sauce_id" value="{{ sauce_id }}">
+            {% for id in id_garnitures %}
+                <input type="hidden" name="garnitures" value="{{ id }}">
+            {% endfor %}
+
+
+            <!-- history.back() trouvé avec Claude Ai -->
+            <div class="boutons-formulaire">
+                <button type="button" class="bouton" onclick="history.back()">Modifier</button>
+                <button type="submit" class="bouton btn-formulaire">Confirmer la commande</button>
+            </div>
+        </form>
+
+    </div>
+</body>
+</html>
