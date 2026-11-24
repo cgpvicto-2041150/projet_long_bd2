@@ -14,16 +14,28 @@ db = mysql.connector.connect(user = os.getenv("DB_USER"),
                              database = os.getenv("DB_NAME"),
                              password = os.getenv("DB_PASSWORD"))
 
+
 @app.route('/')
+
 def index():
+    """
+    Retourne la page d'accueil
+    """
     return render_template('index.html')
 
 @app.route('/commande')
 def afficher_commande():
+    """
+    Retourne la page de prise de commande
+    """
     return render_template('commande.html')
 
 @app.route('/liste_commandes')
 def afficher_liste_commandes():
+    """
+    Affiche la liste de commande avec le statut en attente de livraison et les classe en ordre de prise de commande
+    Retourne: La liste de commande
+    """
     requete ="""
             SELECT c.id, c.date_de_commande, c.adresse, cl.nom, 
             cl.numero_de_telephone, cr.nom AS croute, s.nom AS sauce,
@@ -53,6 +65,10 @@ def afficher_liste_commandes():
 
 @app.route('/resume', methods=['POST'])
 def resume_commande():
+    """
+    Reprend les données soumisent et fait la vérification des données avant des soumettre. Permet aussi de revenir modifier
+    Retourne: Au résumé de la commande
+    """
     nom_complet = request.form['nom_complet']
     telephone = request.form['telephone']
     adresse = request.form['adresse']
@@ -90,6 +106,10 @@ def resume_commande():
 
 @app.route('/confirme', methods=['POST'])
 def soumettre_commande():
+    """
+    Soummet la commande
+    Retourne: Retourne à l'accueil
+    """
     nom_complet = request.form['nom_complet']
     telephone = request.form['telephone']
     adresse = request.form['adresse']
@@ -135,6 +155,11 @@ def soumettre_commande():
     
 @app.route('/livrer/<int:id_commande>',  methods=['POST'])
 def completer_livraison(id_commande):
+    """
+    Permet de completer une livraison
+    Paramètre; id de la commande
+    Retourne la liste de la commande qui est updatée
+    """
     requete = "UPDATE commandes SET statut = %(statut)s WHERE id = %(id)s"
     parametres = {"statut": "livrée", "id": id_commande}
 
